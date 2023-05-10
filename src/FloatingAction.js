@@ -438,7 +438,18 @@ class FloatingAction extends Component {
           {...getRippleProps(mainButtonColor)}
           style={[styles.button, sizeStyle]}
           activeOpacity={0.85}
-          onLongPress={this.animateButton}
+          onPress={() => {
+            if (this.props.openMenuOnLongPress) {
+              this.props.onPress();
+            } else {
+              this.animateButton();
+            }
+          }}
+          onLongPress={() => {
+            if (this.props.openMenuOnLongPress) {
+              this.animateButton();
+            }
+          }}
         >
           <Animated.View
             style={[styles.buttonTextContainer, sizeStyle, animatedViewStyle]}
@@ -621,6 +632,8 @@ FloatingAction.defaultProps = {
   dismissKeyboardOnPress: false,
   listenKeyboard: false,
   actionsPaddingTopBottom: 8,
+  openMenuOnLongPress: false,
+  onPress: {},
   overrideWithAction: false,
   visible: true,
   color: "#1253bc",

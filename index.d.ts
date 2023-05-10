@@ -39,6 +39,8 @@ declare module "react-native-floating-action" {
     color?: string;
     distanceToEdge?: number | { vertical: number; horizontal: number };
     visible?: boolean;
+    openMenuOnLongPress?: boolean;
+    onPress?: () => void;
     overlayColor?: string;
     position?: positionType;
     overrideWithAction?: boolean;

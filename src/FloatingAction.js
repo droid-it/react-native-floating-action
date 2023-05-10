@@ -439,13 +439,21 @@ class FloatingAction extends Component {
           style={[styles.button, sizeStyle]}
           activeOpacity={0.85}
           onPress={() => {
-            if (this.props.openMenuOnLongPress) {
-              this.props.onPress();
+            if (this.isActive) {
+              this.reset();
             } else {
-              this.animateButton();
+              if (this.props.openMenuOnLongPress) {
+                this.reset();
+                this.props.onPress();
+              } else {
+                this.animateButton();
+              }
             }
           }}
           onLongPress={() => {
+            if (this.isActive) {
+              return;
+            }
             if (this.props.openMenuOnLongPress) {
               this.animateButton();
             }

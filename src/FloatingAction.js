@@ -7,6 +7,7 @@ import {
   Dimensions,
   TouchableOpacity,
   LayoutAnimation,
+  Vibration,
   Platform,
   Keyboard
 } from "react-native";
@@ -455,6 +456,7 @@ class FloatingAction extends Component {
               return;
             }
             if (this.props.openMenuOnLongPress) {
+              Vibration.vibrate();
               this.animateButton();
             }
           }}

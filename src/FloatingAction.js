@@ -456,7 +456,7 @@ class FloatingAction extends Component {
               return;
             }
             if (this.props.openMenuOnLongPress) {
-              Vibration.vibrate();
+              Vibration.vibrate(150);
               this.animateButton();
             }
           }}

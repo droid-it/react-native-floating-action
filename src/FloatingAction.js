@@ -461,6 +461,7 @@ class FloatingAction extends Component {
             }
           }}
         >
+          // sample
           <Animated.View
             style={[styles.buttonTextContainer, sizeStyle, animatedViewStyle]}
           >
